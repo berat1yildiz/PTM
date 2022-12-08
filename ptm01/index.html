@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>Soundboard</h1>
+  </div>
+    <div class="soundButtons">
+      <h2>Sounds</h2>
+        <button id="applause" onclick="playSound(this.id)">Applause</button>
+        <button id="boo" onclick="playSound(this.id)">Boo</button>
+        <button id="gasp" onclick="playSound(this.id)">Gasp</button>
+        <button id="tada" onclick="playSound(this.id)">Tada</button>
+        <button id="victory" onclick="playSound(this.id)">Victory</button>
+        <button id="wrong" onclick="playSound(this.id)">Wrong</button>
+      </div>
+        <div>
+            <div class="actions">
+              <h3>Actions</h3> 
+              <button id="record" onclick="recorder()">Record</button>
+              <button id="play" onclick="checkSound()">Play</button>
+              <button id="delete" onclick="deleteRecording()">Delete</button>
+            </div> 
+        </div>
+</body>
+</html>
