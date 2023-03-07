@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    background: #333;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 90vmin;
+    max-height: 90vmin;
+    width: 100%;
+    border: 5px solid #666666;
+    margin: auto;
+    overflow: hidden;
+}
+#menu,
+#game {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 100%;
+}
+#menu {
+    background: #000000;
+}
+.menu-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menu-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+}
+.pixel {
+    width: 10%;
+    padding-bottom: 10%;
+    float: left;
+}
+.snake {
+    z-index: -1;
+    position: relative;
+    background: #d1d41c;
+    box-shadow: 0 0 7px #00ff00, 0 0 20px #00ff00;
+}
+.food {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 40px #ffffff, 0 0 80px #000000;
+}
