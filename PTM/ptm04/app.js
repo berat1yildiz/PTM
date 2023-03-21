@@ -7,22 +7,28 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
     let carouselElement = document.createElement('div');
     let arrowRight = document.createElement('button');
     let arrowLeft = document.createElement('button');
+    let campaignTitle = document.createElement('p');
 
     campaignElement.classList.add('campaign-element');
     carouselElement.classList.add('carousel-element');
     campaignElement.style.position = 'relative';
     campaignElement.style.overflow = 'hidden';
-    campaignElement.style.height = '400px';
+    campaignElement.style.height = '460px';
     campaignElement.style.marginBottom = '5%';
     campaignElement.style.marginRight = '10%';
     campaignElement.style.marginLeft = '10%';
     campaignElement.style.marginTop = '5%';
 
-    carouselElement.style.marginLeft = '50px';
-    carouselElement.style.marginRight = '50px';
+    carouselElement.style.marginLeft = '30px';
+    carouselElement.style.marginRight = '30px';
     carouselElement.style.marginTop = '50px';
     carouselElement.style.marginBottom = '50px';
     carouselElement.style.transform = `translateX(-${0}px)`;
+
+    campaignTitle.textContent = "You might also like";
+    campaignTitle.style.fontSize = '25px';
+    campaignTitle.style.padding = '10px';
+    campaignTitle.style.boxSizing = 'border-box';
 
     let carouselSlider = document.createElement('div');
     carouselSlider.style.flex = '0 0 100%';
@@ -32,6 +38,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
     carouselSlider.style.flexDirection = 'row';
     
     footerElement[0].appendChild(campaignElement);
+    campaignElement.appendChild(campaignTitle);
     campaignElement.appendChild(carouselElement);
     carouselElement.appendChild(carouselSlider);
     campaignElement.appendChild(arrowLeft);
