@@ -250,7 +250,7 @@
                         mySuccessPage.style.cssText = "position:absolute; display:flex;flex-wrap:wrap; width:50%; height:100%; left:50%;padding:%2";
                         successHeader.style.cssText = "position:relative; text-align:center; margin-top:15%; font-size:32px;width:100%";
                         successDesc.style.cssText = "position:relative; height:15px; font-size:14px; text-align:center;width:100%";
-                        couponContainer.style.cssText = "position:relative; height:15px; font-size:14px; text-align:center;width:100%;border-style:dashed;background:whitesmoke;";
+                        couponContainer.style.cssText = "position:relative; height:25px; font-size:14px; text-align:center;width:100%;border-style:dashed;background:whitesmoke;";
                         successButton.style.cssText = "position:relative; background:black; color:white; border-radius:8px; border-style:none;box-sizing:border-box;display:inline-block;height:40px;text-align:center; top:2%;width:100%";    
                     
                     }
@@ -258,7 +258,7 @@
                         mySuccessPage.style.cssText = "position:absolute; display:flex;flex-wrap:wrap; width:50%; height:100%; left:50%;padding:%2";
                         successHeader.style.cssText = "position:relative; text-align:center; margin-top:15%; font-size:32px;width:100%";
                         successDesc.style.cssText = "position:relative; height:15px; font-size:14px; text-align:center;width:100%";
-                        couponContainer.style.cssText = "position:relative; height:15px; font-size:14px; text-align:center;width:100%;border-style:dashed;background:whitesmoke;";
+                        couponContainer.style.cssText = "position:relative; height:30px; font-size:14px; text-align:center;width:100%;border-style:dashed;background:whitesmoke;";
                         successButton.style.cssText = "position:relative; background:black; color:white; border-radius:8px; border-style:none;box-sizing:border-box;display:inline-block;height:40px;text-align:center; top:2%;width:100%";    
             
                     }
