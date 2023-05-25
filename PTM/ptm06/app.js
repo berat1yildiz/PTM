@@ -5,7 +5,6 @@ document.head.appendChild(script);
 fetch('https://opt-interview-projects.onrender.com/smart-recommender')
   .then(response => response.json())
   .then(parsedData => {
-    console.log(parsedData);
     const classes = {
       campaignElement: 'campaign-element',
       carouselSlider: 'carousel-slider',
@@ -14,12 +13,12 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
       campaignTitle: 'campaign-title'
     };
 
-    const prodClasses = {
+    const productClasses = {
       productElement: 'product-element',
       productImageElement: 'product-image-element',
       productNameElement: 'product-name-element',
       productPriceElement: 'product-price-element',
-    }
+    };
 
     var screenWidth = $(window).width();
     function getDeviceType() {  
@@ -30,7 +29,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
       } else {
         return 'mobile';
       }
-    }
+    };
     var deviceType = getDeviceType();
     var carouselElement;
 
@@ -42,26 +41,26 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           <button class="${arrowLeft}"> < </button>
           <button class="${arrowRight}"> > </button>
           <div class="${carouselSlider}"></div>
-        </div>
-      `;
+        </div>`;
+
       $(".footer-content").append(html);
       parsedData.forEach(element => {
-        const {productElement, productImageElement, productNameElement, productPriceElement} = prodClasses;
+        const {productElement, productImageElement, productNameElement, productPriceElement} = productClasses;
         const productHtml = `
           <a class="${productElement}" href="${element.url}">
             <img class="${productImageElement}" src="${element.img}"></img>
             <div class="${productNameElement}">${element.name}</div>
             <div class="${productPriceElement}">${element.price}</div>
-          </a>
-        `;
+          </a>`;
+        
         $("." + carouselSlider).append(productHtml);
       });
       carouselElement = $("." + campaignElement + " ." + carouselSlider);
-    }
+    };
 
     self.buildCss = () => {
       const {campaignElement, carouselSlider, arrowLeft, arrowRight, campaignTitle} = classes;
-      const {productElement, productImageElement, productNameElement, productPriceElement} = prodClasses;
+      const {productElement, productImageElement, productNameElement, productPriceElement} = productClasses;
       const style = `
         .${campaignElement} {
           position: relative;
@@ -74,9 +73,6 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           font-size: 25px;
           padding: 10px;
           box-sizing: border-box;
-        }
-        .${carouselElement} {
-          
         }
         .${carouselSlider} {
           height: 100%;
@@ -105,8 +101,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           border: none;
           top: 55%;
           right: -5px;
-        }
-      `;
+        }`;
       const prodStyleDesktop = `
         .${productElement} {
           display: inline;
@@ -126,8 +121,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         .${productPriceElement} {
           text-align: right;
           margin-top: 15px;
-        }
-      `;
+        }`;
       const prodStyleMobile = `
         .${productElement} {
           display: inline;
@@ -148,8 +142,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           text-align: right;
           margin-top: 8px;
           font-size: 12px;
-        }
-      `;
+        }`;
       const prodStyleTablet = `
         .${productElement} {
           display: inline;
@@ -169,8 +162,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         .${productPriceElement} {
           text-align: right;
           margin-top: 5px;
-        }
-      `;
+        }`;
 
       if (deviceType == 'desktop') {
         $("<style>").html(prodStyleDesktop).appendTo('head');
@@ -180,7 +172,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         $("<style>").html(prodStyleTablet).appendTo('head');
       }
       $("<style>").html(style).appendTo('head');
-    }
+    };
 
     function rightSlider() {
       console.log("slide right");
@@ -223,11 +215,10 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
             $(".carousel-slider").css('transform', `translateX(-${distanceToSlide}px)`);
         }
       }
-    }
-
+    };
     self.buildHTML();
     self.buildCss();
-
+    
     $(document).ready(function() {
       $(".arrow-left").on('click', function() {
         $(".carousel-slider").css('transform', `translateX(${0}px)`);
