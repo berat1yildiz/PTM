@@ -22,7 +22,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
     }
 
     var screenWidth = $(window).width();
-    function checkDeviceType() {  
+    function getDeviceType() {  
       if (screenWidth >= 1024) {
         return 'desktop';
       } else if (screenWidth < 1024 && screenWidth >= 768) {
@@ -31,7 +31,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         return 'mobile';
       }
     }
-    var deviceType = checkDeviceType();
+    var deviceType = getDeviceType();
     var carouselElement;
 
     self.buildHTML = () => {
