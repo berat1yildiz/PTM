@@ -19,19 +19,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
       productNameElement: 'product-name-element',
       productPriceElement: 'product-price-element',
     };
-
-    var screenWidth = $(window).width();
-    function getDeviceType() {  
-      if (screenWidth >= 1024) {
-        return 'desktop';
-      } else if (screenWidth < 1024 && screenWidth >= 768) {
-        return 'tablet';
-      } else {
-        return 'mobile';
-      }
-    };
-    var deviceType = getDeviceType();
-    var carouselElement;
+    let screenSize = window.innerWidth;
 
     self.buildHTML = () => {
       const {campaignElement, carouselSlider, arrowLeft, arrowRight, campaignTitle} = classes;
@@ -55,7 +43,6 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         
         $("." + carouselSlider).append(productHtml);
       });
-      carouselElement = $("." + campaignElement + " ." + carouselSlider);
     };
 
     self.buildCss = () => {
@@ -65,7 +52,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         .${campaignElement} {
           position: relative;
           overflow: hidden;
-          right: 50px;
+          right: 5%;
           height: 460px;
           margin: 5% 0% 5% 10%;
         }
@@ -75,7 +62,6 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           box-sizing: border-box;
         }
         .${carouselSlider} {
-          height: 100%;
           align-items: stretch;
           transform: translateX(-${0}px);
           display: flex;
@@ -95,14 +81,12 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           border-radius: 8px;
           box-sizing: border-box;
           background: white;
-          right: -35px;
           z-index: 10000;
           position: absolute;
           border: none;
           top: 55%;
           right: -5px;
-        }`;
-      const prodStyleDesktop = `
+        }
         .${productElement} {
           display: inline;
           border-style: inset;
@@ -110,7 +94,6 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         }
         .${productImageElement} {
           display: inline-block;
-          width: 200px;
         }
         .${productNameElement} {
           display: inline-block;
@@ -121,29 +104,33 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         .${productPriceElement} {
           text-align: right;
           margin-top: 15px;
-        }`;
-      const prodStyleMobile = `
-        .${productElement} {
-          display: inline;
-          border-style: inset;
-          height: 270px;
         }
-        .${productImageElement} {
-          display: inline-block;
-          width: 140px;
+        @media screen and (max-width: 768px) {
+          .${campaignElement}{
+            right: 5%;
+          }
+          .${productElement} {
+            display: inline;
+            border-style: inset;
+            height: 270px;
+          }
+          .${productImageElement} {
+            display: inline-block;
+            width: 140px;
+          }
+          .${productNameElement} {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            font-size: 12px;
+          }
+          .${productPriceElement} {
+            text-align: right;
+            margin-top: 8px;
+            font-size: 12px;
+          };
         }
-        .${productNameElement} {
-          display: inline-block;
-          text-align: center;
-          width: 100%;
-          font-size: 12px;
-        }
-        .${productPriceElement} {
-          text-align: right;
-          margin-top: 8px;
-          font-size: 12px;
-        }`;
-      const prodStyleTablet = `
+        @media (max-width: 1024px) and (min-width: 768px)
         .${productElement} {
           display: inline;
           border-style: inset;
@@ -162,35 +149,27 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         .${productPriceElement} {
           text-align: right;
           margin-top: 5px;
-        }`;
-
-      if (deviceType == 'desktop') {
-        $("<style>").html(prodStyleDesktop).appendTo('head');
-      } else if (deviceType == 'mobile') {
-        $("<style>").html(prodStyleMobile).appendTo('head');
-      } else {
-        $("<style>").html(prodStyleTablet).appendTo('head');
-      }
+        };
+        `;
       $("<style>").html(style).appendTo('head');
     };
-
+    
     function rightSlider() {
       console.log("slide right");
-      if (deviceType == 'desktop') {
+      if (screenSize >= 1024) {
         var currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
         console.log(currentStatus);
-        var distanceToSlide = currentStatus + 300;
+        var distanceToSlide = currentStatus + 28;
         console.log(distanceToSlide);
 
-
-        if (distanceToSlide >= 900) {
-            $(".carousel-slider").css('transform', 'translateX(-900px)');
+        if (distanceToSlide >= 72) {
+            $(".carousel-slider").css('transform', 'translateX(-56%)');
         } else {
-            $(".carousel-slider").css('transform', `translateX(-${distanceToSlide}px)`);
+            $(".carousel-slider").css('transform', `translateX(-${distanceToSlide}%)`);
         }
       }
       /*tablet slider*/
-      else if (deviceType == 'tablet') {
+      else if (screenSize >= 768) {
         var currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
         console.log(currentStatus);
         var distanceToSlide = currentStatus + 300;
@@ -210,7 +189,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
         console.log(distanceToSlide);
 
         if (distanceToSlide >= 1120) {
-            $(".carousel-slider").css('transform', 'translateX(-1120px)');
+            $(".carousel-slider").css('transform', 'translateX(-385%)');
         } else {
             $(".carousel-slider").css('transform', `translateX(-${distanceToSlide}px)`);
         }
@@ -228,4 +207,4 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
     $(document).ready(function() {
       $(".arrow-right").on('click', rightSlider);
     });
-  });
+  }); 
