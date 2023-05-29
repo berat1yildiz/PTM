@@ -112,7 +112,7 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
           .${productElement} {
             display: inline;
             border-style: inset;
-            height: 270px;
+            height: 100%;
           }
           .${productImageElement} {
             display: inline-block;
@@ -157,9 +157,9 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
     function rightSlider() {
       console.log("slide right");
       if (screenSize >= 1024) {
-        var currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
+        let currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
         console.log(currentStatus);
-        var distanceToSlide = currentStatus + 28;
+        let distanceToSlide = currentStatus + 28;
         console.log(distanceToSlide);
 
         if (distanceToSlide >= 72) {
@@ -170,9 +170,9 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
       }
       /*tablet slider*/
       else if (screenSize >= 768) {
-        var currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
+        let currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
         console.log(currentStatus);
-        var distanceToSlide = currentStatus + 300;
+        let distanceToSlide = currentStatus + 300;
         console.log(distanceToSlide);
 
         if (distanceToSlide >= 1130) {
@@ -183,15 +183,15 @@ fetch('https://opt-interview-projects.onrender.com/smart-recommender')
       }
       /*mobile slider */
       else {
-        var currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
+        let currentStatus = Math.abs(parseInt($(".carousel-slider").css('transform').split(',')[4]));
         console.log(currentStatus);
-        var distanceToSlide = currentStatus + 280;
+        let distanceToSlide = currentStatus + 101;
         console.log(distanceToSlide);
 
-        if (distanceToSlide >= 1120) {
-            $(".carousel-slider").css('transform', 'translateX(-385%)');
+        if (distanceToSlide >= 405) {
+            $(".carousel-slider").css('transform', 'translateX(-405%)');
         } else {
-            $(".carousel-slider").css('transform', `translateX(-${distanceToSlide}px)`);
+            $(".carousel-slider").css('transform', `translateX(-${distanceToSlide}%)`);
         }
       }
     };
